@@ -1,5 +1,6 @@
-# note_pad_hive
+# Complete-Notepad-App-Hive
 
-
-/////....................COMMAND TERMINAL........
-flutter packages pub run build_runner build
+# PROJECT FEATURES:
+# 🛑Provider
+# 🛑Local database(Hive)
+# 🛑Clean code
