@@ -12,7 +12,7 @@ import 'app/modules/note/view/note_view.dart';
 
 void main() async {
   log('main() called--------------');
-  // 3 lines for hive setup
+  // 3 Lines for hive setup
   await Hive.initFlutter();
   Hive.registerAdapter(NoteAdapter());
   await Hive.openBox<Note>('notes');
