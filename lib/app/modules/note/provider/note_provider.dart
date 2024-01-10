@@ -85,4 +85,60 @@ class NoteProvider extends ChangeNotifier {
     titleCtrl.clear();
     descriptionCtrl.clear();
   }
+  void notify() => notifyListeners();
+
+  ////////-------DELETE NOTE------------///////
+  ///////-------///////////////////
+  List<bool> selectedNotes = [];
+  bool isToggleVisible = false;
+  bool isSelectedPermission = false;
+  toggleVisibility(){
+    isToggleVisible = true;
+    notifyListeners();
+  }
+  selectedPermission(){
+    isSelectedPermission = !isSelectedPermission;
+    notifyListeners();
+  }
+  selectedToggle({required int index}){
+    selectedNotes[index] = !selectedNotes[index];
+    notifyListeners();
+  }
+
+  void toggleSelectAll({required Box<Note> noteBox, required bool selectAll}) {
+    log('toggleSelectAll() called--------------');
+
+      selectedNotes = List.generate(noteBox.length, (index) => selectAll);
+      notifyListeners();
+      log('Note select all successfully--------------');
+
+  }
+
+  void deleteSelectedNotes(Box<Note> noteBox) {
+    log('deleteSelectedNotes() called--------------');
+    for (int i = selectedNotes.length - 1; i >= 0; i--) {
+      if (selectedNotes[i]) {
+        noteBox.deleteAt(i);
+        selectedNotes.removeAt(i);
+        log('Note deleted successfully--------------');
+        isToggleVisible = false;
+      }
+    }
+    notifyListeners();
+  }
+
+  Future<bool>exitApp() async{
+    if(isToggleVisible == true){
+      isToggleVisible = false;
+      notifyListeners();
+      log('toggleVisible: FALSE++++++');
+      return false;
+    } else{
+      log('app exit successfully!!');
+      return true;
+    }
+
+  }
+
+//------
 }

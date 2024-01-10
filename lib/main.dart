@@ -33,7 +33,8 @@ class MyApp extends StatelessWidget {
     log('MyApp build() called--------------');
     return MaterialApp(
       title: CustomStrings.appName,
-      home: NoteView(),
+      debugShowCheckedModeBanner: false,
+      home: const NoteView(),
       theme: AppTheme.appTheme,
     );
   }

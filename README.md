@@ -4,3 +4,4 @@
 # 🛑Provider
 # 🛑Local database(Hive)
 # 🛑Clean code
+# 🛑Note delete with logically
