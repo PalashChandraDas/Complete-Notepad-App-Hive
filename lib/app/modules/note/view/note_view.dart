@@ -41,8 +41,8 @@ class NoteView extends StatelessWidget {
                           // Store items in this variable
                           final Note note = value.noteBox.getAt(i)!;
                           return ListTile(
-                            title: Text(note.title!),
-                            subtitle: Text(note.content!),
+                            title: Text(note.title!, maxLines: 1, overflow: TextOverflow.ellipsis,),
+                            subtitle: Text(note.content!, maxLines: 1, overflow: TextOverflow.ellipsis),
                             onTap: () {
                               log('route page----------->');
                               CustomRouter.push(context: context, page: CreateNoteView());

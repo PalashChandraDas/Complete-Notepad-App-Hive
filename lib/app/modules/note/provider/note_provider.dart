@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 
 import '../model/note.dart';
 
@@ -14,8 +15,13 @@ class NoteProvider extends ChangeNotifier {
   // Like onInit()
   // Default constructor
   NoteProvider() {
-    _noteBox = Hive.box<Note>('notes');
+    _init();
     log('onInit() called--------------');
+  }
+
+  Future<void> _init() async {
+    _noteBox = Hive.box<Note>('notes');
+    notifyListeners();
   }
 
   Box<Note> get noteBox => _noteBox;
