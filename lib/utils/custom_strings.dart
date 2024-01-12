@@ -7,4 +7,7 @@ class CustomStrings{
 
   //toast
   static const String toastMsg = 'No data changed';
+
+  //Local Database
+  static const String themeKey = 'isDarkMode';
 }

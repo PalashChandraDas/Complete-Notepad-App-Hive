@@ -7,6 +7,7 @@ import 'package:note_pad_hive/app/routes/custom_router.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../utils/custom_strings.dart';
+import '../../../../widgets/custom_appbar.dart';
 import '../model/note.dart';
 import '../provider/note_provider.dart';
 
@@ -23,31 +24,7 @@ class NoteView extends StatelessWidget {
         return noteProvider.exitApp();
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text(CustomStrings.appName),
-          actions: [
-            Consumer<NoteProvider>(
-              builder: (context, value, child) {
-                return value.isToggleVisible
-                    ? Checkbox(
-                        value: value.isSelectedPermission,
-                        onChanged: (newValue) {
-                          if (value.isSelectedPermission == false) {
-                            value.toggleSelectAll(noteBox: value.noteBox, selectAll: true);
-                            value.selectedPermission();
-                          } else {
-                            value.toggleSelectAll(noteBox: value.noteBox, selectAll: false);
-                            value.selectedPermission();
-                          }
-
-                          log('newValue++++++++++$newValue');
-                        },
-                      )
-                    : const SizedBox();
-              },
-            ),
-          ],
-        ),
+        appBar: const CustomAppBar(title:CustomStrings.appName),
         floatingActionButton: Consumer<NoteProvider>(
           builder: (context, value, child) {
             return FloatingActionButton(
