@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_pad_hive/utils/custom_colors.dart';
 import 'package:note_pad_hive/utils/custom_strings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -23,8 +24,12 @@ class ThemeProvider with ChangeNotifier {
   );
 
   final ThemeData _darkTheme = ThemeData(
-    primarySwatch: Colors.green,
+    primarySwatch: Colors.blueGrey,
     brightness: Brightness.dark,
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: CustomColors.whiteColor
+    )
+
     // Add other dark mode theme configurations
   );
 

@@ -37,13 +37,12 @@ class NoteView extends StatelessWidget {
           },
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Consumer<NoteProvider>(
               builder: (context, value, child) {
                 return value.noteBox.isEmpty
-                    ? const Center(
-                        child: Text(CustomStrings.emptyNote),
-                      )
+                    ? const Center(child: Text(CustomStrings.emptyNote))
                     : Expanded(
                         child: ListView.builder(
                           itemCount: value.noteBox.length,

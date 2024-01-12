@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:note_pad_hive/utils/app_constant.dart';
+import 'package:note_pad_hive/utils/custom_strings.dart';
 
 import '../model/note.dart';
 
@@ -41,7 +43,7 @@ class NoteProvider extends ChangeNotifier {
     }
   }
 
-  void updateNote() {
+  void updateNote({required BuildContext context}) {
     log('updateNote called--------------');
     if (_selectedIndex != null) {
       final title = titleCtrl.text;
@@ -57,6 +59,7 @@ class NoteProvider extends ChangeNotifier {
         log('note saved--------------');
       }
     }
+    AppConstant.customToast(context: context, message: CustomStrings.toastMsg);
   }
 
   void deleteNote({required int index}) {

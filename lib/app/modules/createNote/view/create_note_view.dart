@@ -18,7 +18,7 @@ class CreateNoteView extends StatelessWidget {
       onWillPop: () async {
         notepadProvider.selectedIndex == null
             ? notepadProvider.addNote()
-            : notepadProvider.updateNote();
+            : notepadProvider.updateNote(context: context);
         return true;
       },
       child: Scaffold(
@@ -29,7 +29,7 @@ class CreateNoteView extends StatelessWidget {
                 Navigator.pop(context);
                 notepadProvider.selectedIndex == null
                     ? notepadProvider.addNote()
-                    : notepadProvider.updateNote();
+                    : notepadProvider.updateNote(context: context);
               },
               icon: const Icon(Icons.check),
             )

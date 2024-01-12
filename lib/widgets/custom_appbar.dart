@@ -14,8 +14,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final String title;
   @override
+  Size get preferredSize => AppBar().preferredSize;
+
+  @override
   Widget build(BuildContext context) {
-    // final noteProvider = context.read<NoteProvider>();
 
     return AppBar(
       automaticallyImplyLeading: false,
@@ -62,6 +64,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  @override
-  Size get preferredSize => const Size.fromHeight(60);
+
 }

@@ -3,6 +3,6 @@
 # PROJECT FEATURES:
 # 🛑Provider
 # 🛑Local database(Hive)
-# 🛑Clean code
-# 🛑Note delete with logically
 # 🛑Light/Dark mode
+# 🛑Note delete with logically
+# 🛑Clean code
